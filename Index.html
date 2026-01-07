@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Family Foundation | Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        :root {
+            --p1: #00f2fe;
+            --p2: #7000ff;
+            --p3: #ff00c8;
+            --dark: #03001e;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
+        body { background: var(--dark); color: white; overflow-x: hidden; scroll-behavior: smooth; }
+
+        .mesh-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(112, 0, 255, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.2) 0%, transparent 40%);
+        }
+
+        /* --- Nav with Your Logo --- */
+        nav { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(3, 0, 30, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 45px; width: 45px; border-radius: 50%; border: 2px solid var(--p1); padding: 2px; background: white; }
+        .nav-logo span { font-size: 1.2rem; font-weight: 700; background: linear-gradient(to right, var(--p1), var(--p3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* --- Hero --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero-logo { width: 130px; height: 130px; margin-bottom: 25px; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 30px rgba(0, 242, 254, 0.6); background: white; padding: 5px; }
+        .hero h1 { font-size: clamp(2.2rem, 8vw, 4rem); line-height: 1.2; margin-bottom: 15px; }
+        .hero h1 span { background: linear-gradient(to right, var(--p1), var(--p3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* --- Buttons --- */
+        .btn-group { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 35px; }
+        .action-btn { padding: 14px 28px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: 0.3s; font-size: 1.1rem; }
+        .whatsapp { background: #25D366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        .facebook { background: #1877F2; box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3); }
+        .action-btn:hover { transform: translateY(-5px) scale(1.05); filter: brightness(1.2); }
+
+        /* --- Pillars (নিদর্শন) --- */
+        section { padding: 80px 8%; }
+        .section-title { text-align: center; font-size: 2.6rem; margin-bottom: 60px; background: linear-gradient(to right, #fff, var(--p1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .pillar-card { background: var(--glass); padding: 50px 30px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: 0.5s; backdrop-filter: blur(10px); }
+        .pillar-card:hover { transform: translateY(-15px); border-color: var(--p1); background: rgba(0, 242, 254, 0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .pillar-card i { font-size: 3.5rem; margin-bottom: 25px; display: block; }
+        .c1 { color: var(--p1); } .c2 { color: var(--p2); } .c3 { color: var(--p3); }
+
+        /* --- Form --- */
+        .form-box { max-width: 650px; margin: 0 auto; background: var(--glass); padding: 45px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(20px); }
+        .input-group { margin-bottom: 25px; text-align: left; }
+        .input-group label { display: block; margin-bottom: 10px; color: var(--p1); font-weight: bold; font-size: 1.1rem; }
+        .input-group input, .input-group textarea { width: 100%; padding: 16px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: white; outline: none; font-size: 1rem; }
+        .input-group input:focus { border-color: var(--p1); }
+        .submit-btn { width: 100%; padding: 18px; border: none; border-radius: 15px; background: linear-gradient(to right, var(--p1), var(--p2)); color: white; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
+        .submit-btn:hover { box-shadow: 0 0 30px rgba(0, 242, 254, 0.4); transform: scale(1.02); }
+
+        /* --- Finance --- */
+        .pay-item { background: white; color: black; padding: 22px 30px; border-radius: 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; font-weight: 700; font-size: 1.1rem; }
+        .pay-item:hover { background: var(--p1); color: white; transform: translateX(12px); }
+
+        footer { text-align: center; padding: 70px 5%; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.1); }
+        .foot-logo { height: 60px; margin-bottom: 20px; border-radius: 50%; background: white; padding: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="mesh-bg"></div>
+
+    <nav>
+        <div class="nav-logo">
+            <img src="https://i.postimg.cc/K8JwS2PP/1760649857365.png" alt="OFF Logo">
+            <span>One Family  FOUNDATION</span>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <img src="https://i.postimg.cc/K8JwS2PP/1760649857365.png" alt="OFF Logo" class="hero-logo" data-aos="zoom-in">
+        <h1 data-aos="fade-up">আমরা এক পরিবার,<br><span>একতাই আমাদের শক্তি</span></h1>
+        <p data-aos="fade-up" data-aos-delay="200" style="font-size: 1.2rem; opacity: 0.8;">স্থাপিত: ০১ নভেম্বর, ২০২৫</p>
+        
+        <div class="btn-group" data-aos="zoom-in" data-aos-delay="400">
+            <a href="https://wa.me/8801760694741" class="action-btn whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp সরাসরি কথা বলুন
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582312633521" class="action-btn facebook" target="_blank">
+                <i class="fab fa-facebook-f"></i> ফেসবুক পেজে যুক্ত হোন
+            </a>
+        </div>
+    </div>
+
+    <section>
+        <h2 class="section-title" data-aos="fade-up">আমাদের মূল নীতিসমূহ</h2>
+        <div class="pillar-grid">
+            <div class="pillar-card" data-aos="fade-right">
+                <i class="fas fa-hand-holding-heart c1"></i>
+                <h3>অসহায়ের আশ্রয় ও চিকিৎসা সেবা</h3>
+                <p>"অসুস্থতা কারো কাম্য নয়, কিন্তু দরিদ্রতা যখন চিকিৎসার পথে বাধা হয়ে দাঁড়ায়, তখন জীবন হয়ে ওঠে দুর্বিষহ। ওয়ান ফ্যামিলি ফাউন্ডেশন বিশ্বাস করে, প্রতিটি মানুষের উন্নত চিকিৎসা পাওয়ার অধিকার রয়েছে। আমরা শুধু একটি সংগঠন নই, আমরা সংকটের মুহূর্তে আপনার পরিবারের এক বিশ্বস্ত অংশ হয়ে দাঁড়াতে চাই।"</p>
+            </div>
+            <div class="pillar-card" data-aos="fade-up">
+                <i class="fas fa-heart-circle-check c2"></i>
+                <h3>সেবা যখন নেশা</h3>
+                <p>নিঃস্বার্থভাবে মানুষের সেবা করাই আমাদের প্রধান নেশা ও উদ্দেশ্য।</p>
+            </div>
+            <div class="pillar-card" data-aos="fade-left">
+                <i class="fas fa-shield-halved c3"></i>
+                <h3>স্বচ্ছ আমানত</h3>
+                <p>আপনাদের প্রতিটি পয়সা আমানত হিসেবে স্বচ্ছতার সাথে ব্যবহার করা হয়।</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply">
+        <h2 class="section-title" data-aos="fade-up">নতুন সদস্য হওয়ার আবেদন</h2>
+        <div class="form-box" data-aos="flip-down">
+            <form id="memberForm">
+                <div class="input-group">
+                    <label>আপনার পূর্ণ নাম</label>
+                    <input type="text" placeholder="নাম লিখুন..." required>
+                </div>
+                <div class="input-group">
+                    <label>ফোন নম্বর</label>
+                    <input type="tel" placeholder="017xxxxxxxx" required>
+                </div>
+                <div class="input-group">
+                    <label>ঠিকানা (বর্তমান ও স্থায়ী)</label>
+                    <textarea rows="3" placeholder="গ্রাম/শহর, উপজেলা, জেলা..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">আবেদন সাবমিট করুন</button>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">তহবিল জমার মাধ্যম</h2>
+        <div style="max-width: 550px; margin: 0 auto;">
+            <div class="pay-item" onclick="copy('01760694741')" data-aos="fade-right">
+                <span><i class="fas fa-wallet" style="color:#d1006c"></i> বিকাশ (Personal): 01760694741</span>
+                <i class="far fa-copy"></i>
+            </div>
+            <div class="pay-item" onclick="copy('01760694741')" data-aos="fade-left">
+                <span><i class="fas fa-money-bill-transfer" style="color:#ff6b00"></i> নগদ (Personal): 01760694741</span>
+                <i class="far fa-copy"></i>
+            </div>
+            <div class="pay-item" onclick="copy('01329115888')" data-aos="fade-right">
+                <span><i class="fas fa-university" style="color:#8c3494"></i> রকেট (Personal): 01329115888</span>
+                <i class="far fa-copy"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="https://i.postimg.cc/K8JwS2PP/1760649857365.png" alt="OFF Logo" class="foot-logo">
+        <h2 style="color:var(--p1); margin-bottom: 10px;">One Family Foundation</h2>
+        <p>একতাই আমাদের শক্তি, উন্নয়নই আমাদের লক্ষ্য।</p>
+        <p style="margin-top: 40px; opacity: 0.4; font-size: 0.9rem;">&copy; 2026 ONE FAMILY  FOUNDATION | Established on 01/11/2025</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+
+        function copy(t) {
+            navigator.clipboard.writeText(t);
+            alert("নম্বর কপি হয়েছে: " + t);
+        }
+
+        document.getElementById('memberForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert("ধন্যবাদ! আপনার আবেদনটি সফলভাবে জমা হয়েছে। শীঘ্রই আমরা যোগাযোগ করব।");
+            this.reset();
+        }
+    </script>
+</body>
+</html>
